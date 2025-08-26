@@ -1,0 +1,24 @@
+{
+  "name": "telegram-analyzer",
+  "version": "1.0.0",
+  "description": "Dashboard untuk analisis channel Telegram dengan AI",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"yarn workspace backend dev\" \"yarn workspace frontend dev\"",
+    "dev:backend": "yarn workspace backend dev",
+    "dev:frontend": "yarn workspace frontend dev",
+    "build": "yarn workspace frontend build",
+    "install:all": "yarn install"
+  },
+  "keywords": ["telegram", "analyzer", "dashboard", "ai"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
