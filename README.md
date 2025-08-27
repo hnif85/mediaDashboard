@@ -238,6 +238,76 @@ yarn workspace frontend remove react
 - Periksa OPENAI_API_KEY valid
 - Pastikan ada credit di akun OpenAI
 
+## 🚀 Deployment ke Vercel
+
+### Prerequisites
+- Akun Vercel (https://vercel.com)
+- Vercel CLI (`npm install -g vercel`)
+- Environment variables yang diperlukan
+
+### Quick Deployment
+
+1. **Install dependencies:**
+   ```bash
+   yarn install:all
+   ```
+
+2. **Build untuk production:**
+   ```bash
+   yarn build:vercel
+   ```
+
+3. **Deploy:**
+   ```bash
+   # Preview deployment
+   yarn vercel:dev
+   
+   # Production deployment
+   yarn vercel:deploy
+   ```
+
+### Environment Variables
+
+Set environment variables berikut di Vercel dashboard:
+
+**Required:**
+- `SUPABASE_URL` - URL project Supabase
+- `SUPABASE_ANON_KEY` - Anon key Supabase
+
+**Optional:**
+- `TELEGRAM_API_ID` - Telegram API ID
+- `TELEGRAM_API_HASH` - Telegram API Hash
+- `OPENAI_API_KEY` - OpenAI API Key
+- `ANTHROPIC_API_KEY` - Anthropic API Key
+
+### Testing Deployment
+
+Setelah deploy, test endpoints berikut:
+
+- **Frontend:** `https://your-app.vercel.app`
+- **Health Check:** `https://your-app.vercel.app/api/health`
+- **Test API:** `https://your-app.vercel.app/api/test`
+- **Database Test:** `https://your-app.vercel.app/api/test/db`
+- **Env Test:** `https://your-app.vercel.app/api/test/env`
+
+### Troubleshooting Deployment
+
+#### Deployment tidak tampil
+1. Pastikan semua environment variables sudah diset di Vercel
+2. Check build logs di Vercel dashboard
+3. Test API endpoints untuk verifikasi
+
+#### API tidak bekerja
+1. Pastikan routes dikonfigurasi dengan benar di `vercel.json`
+2. Check CORS configuration
+3. Test dengan endpoint `/api/test`
+
+#### Database connection error
+1. Verifikasi Supabase credentials
+2. Check database schema sudah dibuat
+
+Lihat [DEPLOYMENT.md](DEPLOYMENT.md) untuk panduan lengkap deployment.
+
 ## Kontribusi
 1. Fork repository
 2. Buat feature branch

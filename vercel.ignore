@@ -1,0 +1,27 @@
+# Files to ignore during Vercel deployment
+backend/node_modules/
+frontend/node_modules/
+api/node_modules/
+
+# Development files
+*.log
+*.tmp
+*.temp
+
+# Local database files
+*.db
+*.sqlite
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files (handled by Vercel dashboard)
+.env
+.env.local
+
+# Build artifacts (will be generated during build)
+frontend/dist/
+api/.env
